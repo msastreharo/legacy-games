@@ -18,11 +18,5 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @GetMapping("/games")
-    String listGames(Model model) {
-        List<Game> games = gameService.allGames();
-        model.addAttribute("title", "Game List");
-        model.addAttribute("games", games);
-        return "games/all";
-    }
+// CRUD AQUIIII
 }

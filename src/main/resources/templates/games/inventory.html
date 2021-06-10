@@ -1,0 +1,10 @@
+<section xmlns:th="http://www.thymeleaf.org">
+    <h1 th:text="${title}"></h1>
+    <div class="card" th:each="game: ${games}">
+        <p th:text="${game.id}"></p>
+        <p th:text="${game.title}"></p>
+        <p th:text="${game.price}"></p>
+        <p th:text="${game.category}"></p>
+    </div>
+
+</section>
