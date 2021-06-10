@@ -15,15 +15,25 @@ public class Game implements Serializable {
     @GeneratedValue(strategy = SEQUENCE)
     private Long id;
     private String title;
-    private String platform;
-    private int year;
+    // private String platform;
+    // private int year;
     private double price;
-    private String discount;
-    private double priceAfterDiscount;
+    // private String discount;
+    // private double priceAfterDiscount;
     private String category;
-    private String publisher;
-    private int pegi;
-    private String pegiContentDescriptors;
+    // private String publisher;
+    //private int pegi;
+    //private String pegiContentDescriptors;
+
+    @Override
+    public String toString() {
+       return "Game{" +
+       "id=" + id +
+       ", title='" + title + '\'' +
+       ", price='" + price + '\'' +
+       ", category='" + category + '\'' +
+       '}';
+    }
 
     public Long getId() {
         return id;
@@ -41,7 +51,7 @@ public class Game implements Serializable {
         this.title = title;
     }
 
-    public String getPlatform() {
+   /* public String getPlatform() {
         return platform;
     }
 
@@ -55,7 +65,7 @@ public class Game implements Serializable {
 
     public void setYear(int year) {
         this.year = year;
-    }
+    } */
 
     public double getPrice() {
         return price;
@@ -65,7 +75,7 @@ public class Game implements Serializable {
         this.price = price;
     }
 
-    public String getDiscount() {
+    /* public String getDiscount() {
         return discount;
     }
 
@@ -79,7 +89,7 @@ public class Game implements Serializable {
 
     public void setPriceAfterDiscount(double priceAfterDiscount) {
         this.priceAfterDiscount = priceAfterDiscount;
-    }
+    } */
 
     public String getCategory() {
         return category;
@@ -89,7 +99,7 @@ public class Game implements Serializable {
         this.category = category;
     }
 
-    public String getPublisher() {
+  /*  public String getPublisher() {
         return publisher;
     }
 
@@ -111,5 +121,5 @@ public class Game implements Serializable {
 
     public void setPegiContentDescriptors(String pegiContentDescriptors) {
         this.pegiContentDescriptors = pegiContentDescriptors;
-    }
+    } */
 }
