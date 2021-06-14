@@ -20,7 +20,8 @@ public class Game implements Serializable {
     @NotNull
     private String title;
     // private String platform;
-    // private int year;
+    @NotNull
+    private int year;
     @NotNull
     private double price;
     // private String discount;
@@ -64,14 +65,14 @@ public class Game implements Serializable {
     public void setPlatform(String platform) {
         this.platform = platform;
     }
-
+*/
     public int getYear() {
         return year;
     }
 
     public void setYear(int year) {
         this.year = year;
-    } */
+    }
 
     public double getPrice() {
         return price;
