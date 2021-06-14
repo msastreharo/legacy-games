@@ -5,6 +5,7 @@
         <p th:text="${game.title}"></p>
         <p th:text="${game.price}"></p>
         <p th:text="${game.category}"></p>
-        <button><a th:href="'/new/edit/'+${game.id}">Edit</a></button>
+        <button><a th:href="'/games/edit/'+${game.id}">Edit</a></button>
+        <button><a th:href="'/games/delete/'+${game.id}">Delete</a></button>
     </div>
 </section>

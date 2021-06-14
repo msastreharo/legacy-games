@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
-
 @Controller
 public class GameController {
     private GameService gameService;
@@ -21,25 +19,31 @@ public class GameController {
         this.gameService = gameService;
     }
 
-    @GetMapping("games/new")
+    @GetMapping("/games/new")
     public String newGame(Model model) {
         Game game = new Game();
         model.addAttribute("game", game);
         model.addAttribute("title", "Create a new game");
-        return "games/new";
+        return "games/edit";
     }
 
-    @PostMapping("games/new")
+    @PostMapping("/games/new")
     public String addGames(@ModelAttribute Game game) {
         gameService.save(game);
         return "redirect:/home";
     }
 
-    @GetMapping("games/new/edit/{id}")
+    @GetMapping("/games/edit/{id}")
     public String editGame(Model model, @PathVariable Long id) {
         Game game = gameService.findById(id);
         model.addAttribute("game", game);
         model.addAttribute("title", "Edit game");
         return "games/edit";
+    }
+
+    @GetMapping("games/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        gameService.delete(id);
+        return "redirect:/home";
     }
 }

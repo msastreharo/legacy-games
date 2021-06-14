@@ -1,5 +1,7 @@
 package org.factoriaf5.legacygames.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,12 +16,16 @@ public class Game implements Serializable {
     @Id
     @GeneratedValue(strategy = SEQUENCE)
     private Long id;
+
+    @NotNull
     private String title;
     // private String platform;
     // private int year;
+    @NotNull
     private double price;
     // private String discount;
     // private double priceAfterDiscount;
+    @NotNull
     private String category;
     // private String publisher;
     //private int pegi;
