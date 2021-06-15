@@ -118,7 +118,7 @@ public class Game implements Serializable {
 
     public String getPhotosImagePath() {
         if (photos == null || id == null) return null;
-        return "/game-photos" + id + "/" + photos;
+        return "/game-photos/" + id + "/" + photos;
     }
 
   /*  public String getPublisher() {

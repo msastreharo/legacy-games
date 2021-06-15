@@ -1,12 +1,13 @@
 <section xmlns:th="http://www.thymeleaf.org">
     <h1 th:text="${title}"></h1>
     <div class="card" th:each="game: ${games}">
+        <img th:src="@{${game.photosImagePath}}" />
         <p th:text="${game.id}"></p>
         <p th:text="${game.title}"></p>
         <p th:text="${game.price}"></p>
         <p th:text="${game.year}"></p>
         <p th:text="${game.category}"></p>
-        <img th:src="/@{${game.photosImagePath}}" />
+
         <button><a th:href="'/games/edit/'+${game.id}">Edit</a></button>
         <button><a th:href="'/games/delete/'+${game.id}">Delete</a></button>
     </div>
