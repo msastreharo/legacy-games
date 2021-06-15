@@ -6,6 +6,7 @@
         <p th:text="${game.price}"></p>
         <p th:text="${game.year}"></p>
         <p th:text="${game.category}"></p>
+        <img th:src="/@{${game.photosImagePath}}" />
         <button><a th:href="'/games/edit/'+${game.id}">Edit</a></button>
         <button><a th:href="'/games/delete/'+${game.id}">Delete</a></button>
     </div>

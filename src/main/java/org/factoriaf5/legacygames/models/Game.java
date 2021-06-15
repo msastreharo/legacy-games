@@ -16,21 +16,22 @@ public class Game implements Serializable {
     @Id
     @GeneratedValue(strategy = SEQUENCE)
     private Long id;
-
     @NotNull
     private String title;
-    // private String platform;
     @NotNull
     private int year;
     @NotNull
     private double price;
-    // private String discount;
-    // private double priceAfterDiscount;
     @NotNull
     private String category;
+    private String photos;
+    // private String platform;
+    // private String discount;
+    // private double priceAfterDiscount;
     // private String publisher;
     //private int pegi;
     //private String pegiContentDescriptors;
+
 
     @Override
     public String toString() {
@@ -39,6 +40,7 @@ public class Game implements Serializable {
        ", title='" + title + '\'' +
        ", price='" + price + '\'' +
        ", category='" + category + '\'' +
+       ", photos='" + photos + '\'' +
        '}';
     }
 
@@ -104,6 +106,19 @@ public class Game implements Serializable {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
+    }
+
+    public String getPhotosImagePath() {
+        if (photos == null || id == null) return null;
+        return "/game-photos" + id + "/" + photos;
     }
 
   /*  public String getPublisher() {
