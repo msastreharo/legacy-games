@@ -2,7 +2,6 @@
     <h1 th:text="${title}"></h1>
     <div class="card" th:each="game: ${games}">
         <img th:src="@{${game.photosImagePath}}" />
-        <p th:text="${game.id}"></p>
         <p th:text="${game.title}"></p>
         <p th:text="${game.price}"></p>
         <p th:text="${game.year}"></p>
