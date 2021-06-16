@@ -6,5 +6,5 @@ CREATE TABLE games (
                        price NUMERIC NOT NULL,
                        year NUMERIC NOT NULL,
                        category VARCHAR(255) NOT NULL,
-                       photos VARCHAR(64) NOT NULL
+                       photo VARCHAR(64) NOT NULL
 );

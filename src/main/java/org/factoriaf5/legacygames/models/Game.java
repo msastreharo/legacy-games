@@ -24,7 +24,7 @@ public class Game implements Serializable {
     private double price;
     @NotNull
     private String category;
-    private String photos;
+    private String photo;
     // private String platform;
     // private String discount;
     // private double priceAfterDiscount;
@@ -40,7 +40,7 @@ public class Game implements Serializable {
        ", title='" + title + '\'' +
        ", price='" + price + '\'' +
        ", category='" + category + '\'' +
-       ", photos='" + photos + '\'' +
+       ", photo='" + photo + '\'' +
        '}';
     }
 
@@ -108,17 +108,17 @@ public class Game implements Serializable {
         this.category = category;
     }
 
-    public String getPhotos() {
-        return photos;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setPhotos(String photos) {
-        this.photos = photos;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    public String getPhotosImagePath() {
-        if (photos == null || id == null) return null;
-        return "/game-photos/" + id + "/" + photos;
+    public String getPhotoImagePath() {
+        if (photo == null || id == null) return null;
+        return "/game-photo/" + id + "/" + photo;
     }
 
   /*  public String getPublisher() {

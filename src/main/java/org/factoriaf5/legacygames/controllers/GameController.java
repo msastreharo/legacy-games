@@ -31,9 +31,9 @@ public class GameController {
     @PostMapping("/games/new")
     public String addGames(@ModelAttribute Game game, @RequestParam("image") MultipartFile multipartFile) throws IOException {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        game.setPhotos(fileName);
+        game.setPhoto(fileName);
         gameService.save(game);
-        String uploadDir = "game-photos/" + game.getId();
+        String uploadDir = "game-photo/" + game.getId();
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
         return "redirect:/home";
     }
