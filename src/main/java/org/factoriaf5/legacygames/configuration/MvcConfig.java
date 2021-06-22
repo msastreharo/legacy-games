@@ -1,4 +1,4 @@
-package org.factoriaf5.legacygames.controllers;
+package org.factoriaf5.legacygames.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

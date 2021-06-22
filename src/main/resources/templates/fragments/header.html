@@ -1,12 +1,18 @@
-<header xmlns:th="http://www.w3.org/1999/xhtml">
+<header xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <nav class="nav">
         <img class="logo" th:src="@{/img/legacy-games-logo.png}">
         <ul>
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
+            <li sec:authorize="isAuthenticated()">
                 <a href="/games/new">New</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a href="/logout">Log out</a>
+            </li>
+            <li sec:authorize="isAnonymous()">
+                <a href="/login">Log in</a>
             </li>
         </ul>
     </nav>
