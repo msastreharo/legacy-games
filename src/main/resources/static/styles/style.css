@@ -12,3 +12,11 @@
 .logo {
     height: 150px;
 }
+
+.book-filters {
+    display: flex;
+}
+
+.book-filters li {
+    margin: 0 20px;
+}

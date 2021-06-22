@@ -1,6 +1,7 @@
 package org.factoriaf5.legacygames.controllers;
 
 import org.factoriaf5.legacygames.models.Game;
+import org.factoriaf5.legacygames.services.CategoryService;
 import org.factoriaf5.legacygames.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,10 +15,12 @@ import java.io.IOException;
 @Controller
 public class GameController {
     private GameService gameService;
+    private CategoryService categoryService;
 
     @Autowired
-    public GameController(GameService gameService) {
+    public GameController(GameService gameService, CategoryService categoryService) {
         this.gameService = gameService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/games/new")
@@ -25,6 +28,7 @@ public class GameController {
         Game game = new Game();
         model.addAttribute("game", game);
         model.addAttribute("title", "Create a new game");
+        model.addAttribute("categories", categoryService.allCategories());
         return "games/edit";
     }
 
