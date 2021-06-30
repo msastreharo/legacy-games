@@ -32,4 +32,8 @@ public class GameService {
     public void delete(Long id) {
         gameRepository.deleteById(id);
     }
+
+    public List<Game> searchByName(String word) {
+        return gameRepository.findGamesByTitleContaining(word);
+    }
 }

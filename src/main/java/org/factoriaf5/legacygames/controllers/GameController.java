@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class GameController {
@@ -54,5 +55,12 @@ public class GameController {
     public String delete(@PathVariable Long id) {
         gameService.delete(id);
         return "redirect:/home";
+    }
+
+    @GetMapping("/games/search")
+    String searchGame(Model model, @RequestParam String word) {
+        model.addAttribute("game", gameService.searchByName(word));
+        model.addAttribute("title", "Games containing the term " + word);
+        return "/home";
     }
 }
