@@ -1,25 +1,32 @@
 <section xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <h1 th:text="${title}"></h1>
+
 
     <ul class="book-filters">
         <li><a href="/home">All</a></li>
 
-        <li th:each="category: ${categories}"><a th:href="${'/home?categoryId='+category.id}" th:text="${category.name}"></a></li>
-
+        <li th:each="category: ${categories}"><a th:href="${'/home?categoryId='+category.id}"
+                                                 th:text="${category.name}"></a></li>
     </ul>
 
     <br/>
 
-    <div class="card" th:each="game: ${games}">
-        <img th:src="@{${game.photoImagePath}}" />
-        <p th:text="${game.title}"></p>
-        <p th:text="${game.price}"></p>
-        <p th:text="${game.year}"></p>
-        <p th:text="${game.category.name}"></p>
+    <div class="card-section">
+        <div class="card game-cards" style="width: 18rem;" th:each="game: ${games}">
+            <div class="game-img-container">
+                <img th:src="@{${game.photoImagePath}}" class="card-img-top" alt="Game image"/>
+            </div>
 
-        <button sec:authorize="isAuthenticated()"><a th:href="'/games/edit/'+${game.id}">Edit</a></button>
-        <button sec:authorize="isAuthenticated()"><a th:href="'/games/delete/'+${game.id}">Delete</a></button>
+            <div class="card-body">
+                <h5 class="card-title" th:text="${game.title}"></h5>
+                <p class="card-text" th:text="${game.price}"></p>
+                <p class="card-text" th:text="${game.year}"></p>
+                <!-- <p class="card-text" th:text="${game.category.name}"></p> -->
+            </div>
+            <button sec:authorize="isAuthenticated()"><a th:href="'/games/edit/'+${game.id}">Edit</a></button>
+            <button sec:authorize="isAuthenticated()"><a th:href="'/games/delete/'+${game.id}">Delete</a></button>
+        </div>
     </div>
+
 
 </section>
 
